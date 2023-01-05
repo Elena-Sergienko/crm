@@ -108,9 +108,52 @@ function App() {
             create: newDate,
             id: uuidv4(),
         }
-        console.log("newClient-------", newClient)
-
         setClients([...clients, newClient]);
+    }
+
+    const deleteClient = (id) => {
+        const newClients = clients.filter(client => client.id !== id);
+        setClients(newClients);
+    }
+
+    const editClient = (newName, newAddress, newPhone, newDate, id) => {
+        const updClient = {
+            name: newName,
+            address: newAddress,
+            phone: newPhone,
+            create: newDate,
+            id,
+        }
+        const newClients = clients.map(client => client.id !== updClient.id ? client : updClient);
+        setClients(newClients);
+    }
+
+    const createNewService = (newName, newPrice, newEmployee, newPrimeCost) => {
+        const newService = {
+            id: uuidv4(),
+            name: newName,
+            price: +newPrice,
+            employee: newEmployee,
+            primeCost: +newPrimeCost
+        }
+        setServices([...services, newService]);
+    }
+
+    const deleteService = (id) => {
+        const newService = services.filter(service => service.id !== id);
+        setServices(newService);
+    }
+
+    const editService = (newName, newPrice, newEmployee, newPrimeCost, id) => {
+        const updService = {
+            name: newName,
+            price: +newPrice,
+            employee: newEmployee,
+            primeCost: +newPrimeCost,
+            id,
+        }
+        const newServices = services.map(service => service.id !== updService.id ? service : updService);
+        setServices(newServices);
     }
 
     return (
@@ -121,8 +164,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="orders" element={<Orders orders={orders}/>}/>
-                <Route path="clients" element={<Clients clients={clients} createNewClient={createNewClient}/>}/>
-                <Route path="services" element={<Services services={services}/>}/>
+                <Route path="clients" element={<Clients clients={clients} createNewClient={createNewClient} deleteClient={deleteClient} editClient={editClient}/>}/>
+                <Route path="services" element={<Services services={services} createNewService={createNewService} deleteService={deleteService} editService={editService}/>}/>
                 <Route path="results" element={<Results/>}/>
                 {/*<Route path="product/:id" element={<Product/>}/>*/}
             </Routes>

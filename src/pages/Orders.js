@@ -6,7 +6,7 @@ const Orders = (props) => {
 
 
     return (
-        <div>
+        <div className="m-3">
             <h2>Orders</h2>
             <table className="table table-light table-striped">
                 <thead>

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import ModalClients from "./ModalClients";
+import ModalAddClient from "./ModalAddClient";
 import {Button} from "reactstrap";
+import DropdownClients from "./DropdownClients";
 
 const Clients = (props) => {
-    const {clients, createNewClient} = props;
+    const {clients, createNewClient, deleteClient, editClient} = props;
 
     const headers = ["Name", "Address", "Phone number", "Create at", "Actions"]
     const [modal, setModal] = useState(false);
@@ -12,13 +13,16 @@ const Clients = (props) => {
 
 
     return (
-        <div>
-            <h2>Job</h2>
+        <div className="m-3">
+            <h2>Clients</h2>
 
-            <Button color="danger" onClick={toggle}>
-                Click Me
-            </Button>
-            {modal && <ModalClients toggle={toggle} modal={modal} createNewClient={createNewClient}/>}
+            <div align="right" className="mb-3">
+                <Button color="secondary" outline onClick={toggle}>
+                    Add New Client
+                </Button>
+            </div>
+
+            {modal && <ModalAddClient toggle={toggle} modal={modal} createNewClient={createNewClient}/>}
 
 
             <table className="table table-light table-striped">
@@ -37,6 +41,9 @@ const Clients = (props) => {
                         <td>{client.address}</td>
                         <td>{client.phone}</td>
                         <td>{client.create}</td>
+                        <td>
+                            <DropdownClients client={client} deleteClient={deleteClient} editClient={editClient}/>
+                        </td>
                     </tr>
                 ))}
 

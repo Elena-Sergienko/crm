@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupText, Input} from 'reactstrap';
 
 
-const ModalClients = (props) => {
+const ModalAddClient = (props) => {
     const {toggle, modal, createNewClient} = props;
 
     const [newName, setNewName] = useState("");
@@ -17,7 +17,7 @@ const ModalClients = (props) => {
     }
 
     useEffect(() => {
-        todayDate()
+        todayDate();
     }, [])
 
     const todayDate = () => {
@@ -32,39 +32,43 @@ const ModalClients = (props) => {
 
     return (
         <div>
-
             <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalHeader toggle={toggle}>Add New Client</ModalHeader>
                 <ModalBody>
-                    Lorem ipsum
+                    Please add data
                 </ModalBody>
 
-                <InputGroup value={newName} onChange={(e) => setNewName(e.target.value)}>
+                <InputGroup>
                     <InputGroupText>
                         Name
                     </InputGroupText>
-                    <Input placeholder="name"/>
+                    <Input placeholder="name" value={newName} onChange={(e) => setNewName(e.target.value)}/>
                 </InputGroup>
                 <br/>
-                <InputGroup value={newAddress} onChange={(e) => setNewAddress(e.target.value)}>
+                <InputGroup>
                     <InputGroupText>
                         Address
                     </InputGroupText>
-                    <Input placeholder="address"/>
+                    <Input placeholder="address" value={newAddress} onChange={(e) => setNewAddress(e.target.value)}/>
                 </InputGroup>
                 <br/>
-                <InputGroup value={newPhone} onChange={(e) => setNewPhone(e.target.value)}>
+                <InputGroup>
                     <InputGroupText>
                         Phone
                     </InputGroupText>
-                    <Input placeholder="phone number"/>
+                    <Input placeholder="phone number" value={newPhone} onChange={(e) => setNewPhone(e.target.value)}/>
                 </InputGroup>
-
-                {newDate}
+                <br/>
+                <InputGroup>
+                    <InputGroupText>
+                        Date
+                    </InputGroupText>
+                    <Input value={newDate}/>
+                </InputGroup>
 
                 <br/>
                 <ModalFooter>
-                    <Button color="primary" onClick={newClientHandler} >
+                    <Button color="primary" onClick={newClientHandler}>
                         Create
                     </Button>{' '}
                     <Button color="secondary" onClick={toggle}>
@@ -76,4 +80,4 @@ const ModalClients = (props) => {
     );
 };
 
-export default ModalClients;
+export default ModalAddClient;
