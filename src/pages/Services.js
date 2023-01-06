@@ -6,7 +6,7 @@ import ModalAddClient from "./ModalAddClient";
 import ModalAddService from "./ModalAddService";
 
 const Services = (props) => {
-    const {services, deleteService, editService, createNewService} = props;
+    const {services, deleteService, editService, createNewService, employees} = props;
     const headers = ["Name of job", "Price", "Employee", "Prime cost", "Actions"];
     const [modal, setModal] = useState(false);
 
@@ -21,7 +21,7 @@ const Services = (props) => {
                 </Button>
             </div>
 
-            {modal && <ModalAddService toggle={toggle} modal={modal} editService={editService} createNewService={createNewService}/>}
+            {modal && <ModalAddService toggle={toggle} modal={modal} editService={editService} createNewService={createNewService} employees={employees}/>}
 
 
             <table className="table table-light table-striped">
@@ -41,7 +41,7 @@ const Services = (props) => {
                         <td>{service.employee}</td>
                         <td>{service.primeCost}</td>
                         <td>
-                            <DropdownServices service={service} deleteService={deleteService} editService={editService}/>
+                            <DropdownServices service={service} deleteService={deleteService} editService={editService} employees={employees}/>
                         </td>
                     </tr>
                 ))}

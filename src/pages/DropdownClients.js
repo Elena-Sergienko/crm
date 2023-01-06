@@ -18,7 +18,7 @@ const DropdownClients = (props) => {
     return (
         <>
         <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown} direction={direction}>
-            <DropdownToggle caret ></DropdownToggle>
+            <DropdownToggle size="sm" outline>▼</DropdownToggle>
 
             <DropdownMenu>
                 <DropdownItem onClick={toggleEditClient}>

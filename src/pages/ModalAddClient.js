@@ -35,7 +35,7 @@ const ModalAddClient = (props) => {
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Add New Client</ModalHeader>
                 <ModalBody>
-                    Please add data
+                    Please enter the data in the input fields
                 </ModalBody>
 
                 <InputGroup>

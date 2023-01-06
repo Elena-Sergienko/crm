@@ -75,20 +75,35 @@ const initialServices = [
     }
 ]
 
+const initialEmployees = [
+    {
+        id: uuidv4(),
+        name: "Greg"
+    },
+    {
+        id: uuidv4(),
+        name: "Bob"
+    },
+    {
+        id: uuidv4(),
+        name: "Rachel"
+    }
+]
+
 const initialClients = [
     {
         id: uuidv4(),
         name: "Bill Brown",
         address: "New York",
         phone: "+198376565674",
-        create: "15.01.21"
+        create: "15.01.2021"
     },
     {
         id: uuidv4(),
         name: "Bob Smith",
         address: "Chicago",
         phone: "+1987654321",
-        create: "20.01.21"
+        create: "20.01.2021"
     }
 ]
 
@@ -97,6 +112,7 @@ function App() {
 
     const [services, setServices] = useState(initialServices);
     const [clients, setClients] = useState(initialClients);
+    const [employees, setEmployees] = useState(initialEmployees);
     const [orders, setOrders] = useState(initialOrders);
 
 
@@ -165,7 +181,7 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="orders" element={<Orders orders={orders}/>}/>
                 <Route path="clients" element={<Clients clients={clients} createNewClient={createNewClient} deleteClient={deleteClient} editClient={editClient}/>}/>
-                <Route path="services" element={<Services services={services} createNewService={createNewService} deleteService={deleteService} editService={editService}/>}/>
+                <Route path="services" element={<Services services={services} createNewService={createNewService} deleteService={deleteService} editService={editService} employees={employees}/>}/>
                 <Route path="results" element={<Results/>}/>
                 {/*<Route path="product/:id" element={<Product/>}/>*/}
             </Routes>

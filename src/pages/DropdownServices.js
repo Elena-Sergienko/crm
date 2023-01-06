@@ -5,7 +5,7 @@ import ModalEditService from "./ModalEditService";
 
 
 const DropdownServices = (props) => {
-    const { direction, service, deleteService, editService } = props;
+    const { direction, service, deleteService, editService, employees } = props;
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
@@ -18,12 +18,12 @@ const DropdownServices = (props) => {
     return (
         <>
         <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown} direction={direction}>
-            <DropdownToggle caret ></DropdownToggle>
+            <DropdownToggle size="sm">▼</DropdownToggle>
 
             <DropdownMenu>
                 <DropdownItem onClick={toggleEditService}>
                     Edit
-                    <ModalEditService service={service} toggleEditService={toggleEditService} modalEditService={modalEditService} editService={editService}/>
+                    <ModalEditService service={service} toggleEditService={toggleEditService} modalEditService={modalEditService} editService={editService} employees={employees}/>
                 </DropdownItem>
                 <DropdownItem onClick={() => deleteService(service.id)}>Delete</DropdownItem>
             </DropdownMenu>
