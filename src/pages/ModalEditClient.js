@@ -38,44 +38,46 @@ const ModalEditClient = (props) => {
                 <ModalBody>
                     Edit data
                 </ModalBody>
+                <div className="m-3">
 
-                <InputGroup>
-                    <InputGroupText>
-                        Edit Name
-                    </InputGroupText>
-                    <Input placeholder="name" value={newName} onChange={(e) => setNewName(e.target.value)}/>
-                </InputGroup>
-                <br/>
-                <InputGroup>
-                    <InputGroupText>
-                        Edit Address
-                    </InputGroupText>
-                    <Input value={newAddress} onChange={(e) => setNewAddress(e.target.value)}/>
-                </InputGroup>
-                <br/>
-                <InputGroup>
-                    <InputGroupText>
-                        Edit Phone
-                    </InputGroupText>
-                    <Input value={newPhone} onChange={(e) => setNewPhone(e.target.value)}/>
-                </InputGroup>
-                <br/>
-                <InputGroup>
-                    <InputGroupText>
-                        Date
-                    </InputGroupText>
-                    <Input value={newDate}/>
-                </InputGroup>
+                    <InputGroup>
+                        <InputGroupText>
+                            Edit Name
+                        </InputGroupText>
+                        <Input placeholder="name" value={newName} onChange={(e) => setNewName(e.target.value)}/>
+                    </InputGroup>
+                    <br/>
+                    <InputGroup>
+                        <InputGroupText>
+                            Edit Address
+                        </InputGroupText>
+                        <Input value={newAddress} onChange={(e) => setNewAddress(e.target.value)}/>
+                    </InputGroup>
+                    <br/>
+                    <InputGroup>
+                        <InputGroupText>
+                            Edit Phone
+                        </InputGroupText>
+                        <Input value={newPhone} onChange={(e) => setNewPhone(e.target.value)}/>
+                    </InputGroup>
+                    <br/>
+                    <InputGroup>
+                        <InputGroupText>
+                            Date
+                        </InputGroupText>
+                        <Input value={newDate}/>
+                    </InputGroup>
 
-                <br/>
-                <ModalFooter>
-                    <Button color="primary" onClick={newClientHandler}>
-                        Submit
-                    </Button>{' '}
-                    <Button color="secondary" onClick={toggleEditClient}>
-                        Cancel
-                    </Button>
-                </ModalFooter>
+                    <br/>
+                    <ModalFooter>
+                        <Button color="primary" onClick={newClientHandler}>
+                            Submit
+                        </Button>{' '}
+                        <Button color="secondary" onClick={toggleEditClient}>
+                            Cancel
+                        </Button>
+                    </ModalFooter>
+                </div>
             </Modal>
         </div>
     );

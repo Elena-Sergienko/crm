@@ -116,6 +116,29 @@ function App() {
     const [orders, setOrders] = useState(initialOrders);
 
 
+    const createNewOrder = (newName, newService, newPrice, newPayments, newDebts, newDate) => {
+        const newOrder = {
+            id: uuidv4(),
+            name: newName,
+            service: newService,
+            price: newPrice,
+            payments: newPayments,
+            debt: newDebts,
+            create: newDate,
+            statuses:
+            {
+                "In progress": false,
+                "Job completed": false,
+                "Say to client": false,
+                "Client received": false,
+                "Paid": false
+            },
+            dates: []
+        }
+
+        setOrders([...orders, newOrder]);
+    }
+
     const createNewClient = (newName, newAddress, newPhone, newDate) => {
         const newClient = {
             name: newName,
@@ -179,7 +202,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="orders" element={<Orders orders={orders}/>}/>
+                <Route path="orders" element={<Orders orders={orders} createNewOrder={createNewOrder} clients={clients} services={services}/>}/>
                 <Route path="clients" element={<Clients clients={clients} createNewClient={createNewClient} deleteClient={deleteClient} editClient={editClient}/>}/>
                 <Route path="services" element={<Services services={services} createNewService={createNewService} deleteService={deleteService} editService={editService} employees={employees}/>}/>
                 <Route path="results" element={<Results/>}/>

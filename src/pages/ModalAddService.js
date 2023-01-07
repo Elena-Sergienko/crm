@@ -31,11 +31,11 @@ const ModalAddService = (props) => {
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Add New Service</ModalHeader>
+                <ModalBody>
+                    Please enter the data in the input fields
+                </ModalBody>
                 <div className="m-3">
-                    <ModalHeader toggle={toggle}>Add New Service</ModalHeader>
-                    <ModalBody>
-                        Please enter the data in the input fields
-                    </ModalBody>
 
                     <InputGroup>
                         <InputGroupText>

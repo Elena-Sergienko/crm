@@ -29,12 +29,12 @@ const ModalEditService = (props) => {
     return (
         <div>
             <Modal isOpen={modalEditService} toggle={toggleEditService}>
-                <div className="m-3">
-                    <ModalHeader toggle={toggleEditService}>Edit Service</ModalHeader>
-                    <ModalBody>
-                        Edit data
-                    </ModalBody>
+                <ModalHeader toggle={toggleEditService}>Edit Service</ModalHeader>
+                <ModalBody>
+                    Edit data
+                </ModalBody>
 
+                <div className="m-3">
                     <InputGroup>
                         <InputGroupText>
                             Edit Name
